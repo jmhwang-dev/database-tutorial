@@ -1,0 +1,8 @@
+services:
+  my-db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d
