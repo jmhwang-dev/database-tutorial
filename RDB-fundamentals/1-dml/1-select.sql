@@ -157,6 +157,50 @@ where 고객.나이 >= 30;
 -- FROM 테이블1 LEFT | RIGHT | FULL OUTER JOIN 테이블2 ON 조인조건 
 --  [ WHERE 검색조건 ] 
 
+-- CROSS JOIN: 두 테이블의 모든 조합을 반환
+
+-- 예시: 학생과 과목 테이블이 있다고 가정
+
+-- Students table:
+-- +------------+--------------+
+-- | student_id | student_name |
+-- +------------+--------------+
+-- | 1          | Alice        |
+-- | 2          | Bob          |
+-- | 13         | John         |
+-- | 6          | Alex         |
+-- +------------+--------------+
+-- Subjects table:
+-- +--------------+
+-- | subject_name |
+-- +--------------+
+-- | Math         |
+-- | Physics      |
+-- | Programming  |
+-- +--------------+
+
+SELECT *
+FROM Students
+CROSS JOIN Subjects
+ORDER BY student_id, subject_name;
+
+-- 결과:
+-- | student_id | student_name | subject_name |
+-- | ---------- | ------------ | ------------ |
+-- | 1          | Alice        | Math         |
+-- | 1          | Alice        | Physics      |
+-- | 1          | Alice        | Programming  |
+-- | 2          | Bob          | Math         |
+-- | 2          | Bob          | Physics      |
+-- | 2          | Bob          | Programming  |
+-- | 6          | Alex         | Math         |
+-- | 6          | Alex         | Physics      |
+-- | 6          | Alex         | Programming  |
+-- | 13         | John         | Math         |
+-- | 13         | John         | Physics      |
+-- | 13         | John         | Programming  |
+
+
 
 -- 부속 질의문을 이용한 검색 (sub query)
 --  부속 질의문은 괄호로 묶어 작성하고, order by를 사용할 수 없다.
